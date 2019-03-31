@@ -5,7 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Starring "The Rock"</title>
     <script>
-        
+        const choices = ['Rock', 'Papers', 'Scissors'];
+        const playersChoice = 'Rock';
+        const computersChoice = computerPlay();
+
+
+        function playRound(playersChoice, computersChoice){
+            //plays a round
+            
+        }
+
+
+        function computerPlay(){
+            return choices[Math.floor(choices.length * Math.random())];
+        }
     </script>
 </head>
 <body>
