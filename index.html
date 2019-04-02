@@ -6,12 +6,19 @@
     <title>Starring "The Rock"</title>
     <script>
         const choices = ['Rock', 'Paper', 'Scissors'];
-        const playersChoice = "rock";
-        const computersChoice = computerPlay().toLowerCase();
+        let playersChoice = prompt("Rock, paper or scissors?").toLowerCase();
+        let computersChoice = computerPlay().toLowerCase();
 
+        function game() {
+            let playersScore = 0;
+            let computersScore = 0;
+            while((computersScore !== 5) || (playersScore !== 5)){
+
+            }
+        }
 
         function playRound(playersChoice, computersChoice){
-            if(playersChoice = "rock"){
+            if(playersChoice == "rock"){
                 switch(computersChoice){
                     case "rock":
                     console.log("It's a draw!");
@@ -20,13 +27,13 @@
                     console.log("Paper beats Rock. You lose!");
                     break;
                     case "scissors":
-                    console.log("Rock beats Scirrors. You win!");
+                    console.log("Rock beats Scissors. You win!");
                     break;
                     default:
                     console.info("Something went wrong! 1");
                 } 
             }
-            else if(playersChoice = "paper") {
+            else if(playersChoice == "paper") {
                 switch(computersChoice){
                     case "rock":
                     console.log("Paper beats Rock. You win!");
@@ -36,6 +43,7 @@
                     break;
                     case "scissors":
                     console.log("Scissors beat Paper. You lose!");
+                    break;
                     default:
                     console.info("Something went wrong! 2")     
                 }
@@ -50,6 +58,7 @@
                     break;
                     case "scissors":
                     console.log("It's a draw!");
+                    break;
                     default:
                     console.info("Something went wrong! 3")   
                 }
