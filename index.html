@@ -3,19 +3,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Starring "The Rock"</title>
+    <title>Dwayne "The Rock"</title>
     <script>
-        const choices = ['Rock', 'Paper', 'Scissors'];
-        let playersChoice = prompt("Rock, paper or scissors?").toLowerCase();
-        let computersChoice = computerPlay().toLowerCase();
+        //variables
+        const choices = ['rock', 'paper', 'scissors'];
+        let playersChoice;
+        let computersChoice;
+        let playersScore;
+        let computersScore;
+
+        //initiate the game
+        game();
+
 
         function game() {
-            let playersScore = 0;
-            let computersScore = 0;
-            while((computersScore !== 5) || (playersScore !== 5)){
-
+            //reset the game first
+            resetGame();
+            //play till score of 5
+            while(computersScore !== 5 && playersScore !== 5){
+                playersChoice = prompt("Rock, paper or scissors?").toLowerCase();
+                computersChoice = computerPlay();
+                playRound(playersChoice, computersChoice);
             }
+            //show the final score
+            let result = (computersScore > playersScore) ? "You have lost!" : "You have won!";
+            console.info(result + " The final score is: Computer - " + computersScore + ", You - " + playersScore);
         }
+
 
         function playRound(playersChoice, computersChoice){
             if(playersChoice == "rock"){
@@ -25,9 +39,11 @@
                     break;
                     case "paper":
                     console.log("Paper beats Rock. You lose!");
+                    computersScore++;
                     break;
                     case "scissors":
                     console.log("Rock beats Scissors. You win!");
+                    playersScore++;
                     break;
                     default:
                     console.info("Something went wrong! 1");
@@ -37,12 +53,14 @@
                 switch(computersChoice){
                     case "rock":
                     console.log("Paper beats Rock. You win!");
+                    playersScore++;
                     break;
                     case "paper":
                     console.log("It's a draw!");
                     break;
                     case "scissors":
                     console.log("Scissors beat Paper. You lose!");
+                    computersScore++;
                     break;
                     default:
                     console.info("Something went wrong! 2")     
@@ -52,9 +70,11 @@
                 switch(computersChoice){
                     case "rock":
                     console.log("Rock beats Scissors. You lose!");
+                    computersScore++;
                     break;
                     case "paper":
                     console.log("Scissors beat Paper. You win!");
+                    playersScore++;
                     break;
                     case "scissors":
                     console.log("It's a draw!");
@@ -69,9 +89,16 @@
         function computerPlay(){
             return choices[Math.floor(choices.length * Math.random())];
         }
+
+
+        function resetGame() {
+            //reset the scores
+            playersScore = 0;
+            computersScore = 0;
+        }
     </script>
 </head>
 <body>
-    <p>I am the danger</p>
+    <p>Dwayne "The Rock" Johnson is always a winner!</p>
 </body>
 </html>
